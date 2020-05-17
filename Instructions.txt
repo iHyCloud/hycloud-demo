@@ -1,0 +1,10 @@
+Instructions of HyCloud Prototype
+
+This prototype provides a cost-efficient filesystem hosting service on top of Amazon S3 and EFS in a scalable manner.
+
+-- Project "HyCloud Service" includes both controller and relay proxy of HyCloud, which is programmed in J2EE framework and managed by Apache Maven. The project can be imported into MyEclipse and built to a WAR file with the Maven command "clean package". The WAR file then can be deployed into Apache Tomcat configured in an Amazon EC2 instance either as a controller or a relay proxy. When a relay proxy starts up, it can be automatically connected to the controller based on a communication framework called Apache MINA.
+-- Project "HyCloud Client" is a lightweight and user-friendly client APP that monitors all file operations of a user and then sends requests to HyCloud service accordingly.
+
+** Note that EFS cloud service should be mounted to all built EC2 instances, the methodology can be acquired from the Amazon Elastic File System Documentation (https://docs.aws.amazon.com/efs/latest/ug/wt2-apache-web-server.html). It is also necessary to import Amazon S3 SDK (including various data APIs) into the project to access S3 cloud service. As the SDK file is large in size that exceeds the limitation of GitHub, we advise downloading it from Amazon website (https://aws.amazon.com/sdk-for-java/) and adding it with the help of MyEclipse "Add Libraries..".
+
+
